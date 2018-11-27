@@ -1,0 +1,121 @@
+# Short title
+
+Monitor performance, fairness, and quality of a WML model with AI OpenScale APIs
+
+# Long title
+
+Create a data mart for Watson Machine Learning deployments and include steps to monitor performance, fairness, and quality using AI OpenScale APIs.
+
+# Author
+
+* Lukasz Cmielowski lukasz.cmielowski@pl.ibm.com
+* Scott D'Angelo scott.dangelo@ibm.com
+
+# URLs
+
+### Github repo
+
+* https://github.com/IBM/AIOpenScale-data-mart
+
+### Other URLs
+
+* Demo URL
+
+# Summary
+
+> **DISCLAIMER**: This notebook is used for demonstrative and illustrative purposes only and does not constitute an offering that has gone through regulatory review. It is not intended to serve as a medical application. There is no representation as to the accuracy of the output of this application and it is presented without warranty.
+
+# AIOpenScale Data Mart
+
+In this Code Pattern, we will continue from [Prediction Using Watson Machine Learning](https://github.com/IBM/prediction-using-watson-machine-learning) using the model for best drug treatment that was created and deployed. We will create a data mart for Watson Machine Learning deployments and include steps for performance, bias and quality monitor configurations.
+
+When the reader has completed this Code Pattern, they will understand how to:
+
+* Setup AI OpenScale Data Mart
+* Bind Watson Machine Learning to the AIOS Data Mart
+* Add subscriptions to the Data Mart
+* Enable payload logging and performance monitor for both subscribed assets
+* Enable Quality (Accuracy) monitor for best heart drug asset
+* Enable Fairness monitor for best hurt drug asset
+* Score the best-heart drug model using the Watson Machine Learning
+* Use Data Mart to access tables data via subscription
+
+# Technologies
+
+* [Analytics](https://developer.ibm.com/watson/): Analytics delivers the value of data for the enterprise.
+* [Artificial Intelligence](https://medium.com/ibm-watson): Artificial intelligence can be applied to disparate solution spaces to deliver disruptive technologies
+* [Data Science](https://medium.com/ibm-watson): Systems and scientific methods to analyze structured and unstructured data in order to extract knowledge and insights.
+
+# Description
+
+The focus of this code pattern is to enable a model to be monitored and managed using IBM AI Openscale.  The pattern provides examples of how to configure the OpenScale service as well as how to enable a model deployed in Watson Machine Learning service  to be managed through the service including the creation of fairness and accuracy measures applicable to the model.
+
+IBM AI OpenScale is an open environment which enables organizations to automate and operationalize their AI.  OpenScale provides a powerful platform for managing AI and ML models on the IBM cloud, or wherever they may be deployed, offering these benefits:
+
+Open by design: AI OpenScale allows monitoring and management of ML and DL models built using any frameworks or IDEs and deployed on any model hosting engine.
+
+Drive fairer outcomes: AI OpenScale detects and helps mitigate model biases to highlight fairness issues. The platform provides plain text explanation of the data ranges which have been impacted by bias in the model, and visualizations helping data scientists and business users understand the impact on business outcomes. As biases are detected, AI OpenScale automatically creates a de-biased companion model that runs beside deployed model, thereby previewing the expected fairer outcomes to users without replacing the original.
+
+Explain transactions: AI OpenScale helps enterprises bring transparency and auditability to AI-infused applications by generating explanations for individual transactions being scored, including the attributes that were used to make the prediction and weightage of each attribute.
+
+Automate the creation of AI: Neural Network Synthesis (NeuNetS), available in this update as a beta, synthesizes neural networks by fundamentally architecting a custom design for a given data set. In the beta, NeuNetS will support image and text classification models. NeuNetS reduces the time and lowers the skill barrier required to design and train custom neural networks, thereby putting neural networks within the reach of non-technical subject matter experts, as well as making data scientists more productive.
+
+# Flow
+
+https://github.com/IBM/AIOpenScale-data-mart/blob/master/doc/source/images/architecture.png
+
+1. The developer creates a Jupyter Notebook on Watson Studio, using the existing project from [Prediction Using Watson Machine Learning](https://github.com/IBM/prediction-using-watson-machine-learning).
+2. The Jupyter Notebook is connected to a PostgreSQL database, which is used to store AI OpenScale data.
+3. The notebook is connected to Watson Machine Learning, where the existing ML model for Heart Medicine Predictor is used.
+4. AI Open Scale is used by the notebook to log payload and monitor performance, quality, and fairness.
+# Instructions
+
+> Provide the high-level technical steps that a developer will complete in the pattern (the details for these steps will appear in the readme file). For example, if the developer needs to install and configure a program, step one might be "Download the code from GitHub" and step 2 might be "Configure the code on your local drive." You would provide the full technical details on how to configure the code in the readme file.
+
+> Find the detailed steps for this pattern in the [readme file](<URL for the README.md file in your GitHub repo>). The steps will show you how to:
+
+1. Clone the repository
+1. Create a Compose for PostgreSQL DB
+1. Create an AI OpenScale service
+1. Create a notebook in IBM Watson Studio
+1. Run the notebook in IBM Watson Studio
+
+# Components and services
+
+* [AI OpenScale](https://console.bluemix.net/catalog/services/ai-openscale)
+* IBM Watson Studio
+* IBM Machine Learning
+* IBM PostgreSQL
+
+# Runtimes
+
+# Python 3.5
+
+
+# Related links
+
+
+* [CARS4U demonstration notebook](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/CARS4U%20action%20recommendation%20-%20model.ipynb)
+* [CARS4U DataMart](https://github.com/pmservice/ai-openscale-tutorials/blob/master/notebooks/Data%20Mart%20configuration%20and%20usage%20-%20CARS4U.ipynb)
+
+# Announcement
+
+The focus of this code pattern is to enable a model to be monitored and managed using IBM AI Openscale.  The pattern provides examples of how to configure the OpenScale service as well as how to enable a model deployed in Watson Machine Learning service  to be managed through the service including the creation of fairness and accuracy measures applicable to the model.
+
+IBM AI OpenScale is an open environment which enables organizations to automate and operationalize their AI.  OpenScale provides a powerful platform for managing AI and ML models on the IBM cloud, or wherever they may be deployed, offering these benefits:
+
+Open by design: AI OpenScale allows monitoring and management of ML and DL models built using any frameworks or IDEs and deployed on any model hosting engine.
+
+Drive fairer outcomes: AI OpenScale detects and helps mitigate model biases to highlight fairness issues. The platform provides plain text explanation of the data ranges which have been impacted by bias in the model, and visualizations helping data scientists and business users understand the impact on business outcomes. As biases are detected, AI OpenScale automatically creates a de-biased companion model that runs beside deployed model, thereby previewing the expected fairer outcomes to users without replacing the original.
+
+Explain transactions: AI OpenScale helps enterprises bring transparency and auditability to AI-infused applications by generating explanations for individual transactions being scored, including the attributes that were used to make the prediction and weightage of each attribute.
+
+Automate the creation of AI: Neural Network Synthesis (NeuNetS), available in this update as a beta, synthesizes neural networks by fundamentally architecting a custom design for a given data set. In the beta, NeuNetS will support image and text classification models. NeuNetS reduces the time and lowers the skill barrier required to design and train custom neural networks, thereby putting neural networks within the reach of non-technical subject matter experts, as well as making data scientists more productive.
+
+This pattern builds upon the [Prediction using Watson Machine Learning](https://github.com/IBM/watson-machine-learning-model-deploy) pattern using the model created there as an example for management using AI OpenScale.  Please try it out and let us know what you think.
+
+Read More:
+
+[AI OpenScale service on IBM Cloud](https://console.bluemix.net/catalog/services/ai-openscale)
+[More Details on AI OpenScale Functionality](https://www.ibm.com/blogs/bluemix/2018/12/automate-and-operationalize-your-ai-with-ai-openscale/)
+
