@@ -15,8 +15,14 @@ When the reader has completed this Code Pattern, they will understand how to:
 * Score the best-heart drug model using the Watson Machine Learning
 * Use Data Mart to access tables data via subscription
 
+![](doc/source/images/architecture.png)
+
 ## Flow
-TBD
+
+1. The developer creates a Jupyter Notebook on Watson Studio, using the existing project from [Prediction Using Watson Machine Learning](https://github.com/IBM/prediction-using-watson-machine-learning).
+2. The Jupyter Notebook is connected to a PostgreSQL database, which is used to store AI OpenScale data.
+3. The notebook is connected to Watson Machine Learning, where the existing ML model for Heart Medicine Predictor is used.
+4. AI Open Scale is used by the notebook to log payload and monitor performance, quality, and fairness.
 
 ## Prerequisites
 
