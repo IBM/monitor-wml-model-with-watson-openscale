@@ -42,8 +42,8 @@ When the reader has completed this Code Pattern, they will understand how to:
 ### 1. Clone the repository
 
 ```
-$ git clone https://github.com/IBM/monitor-WML-model-with-AI-OpenScale
-$ cd AIOpenScale-data-mart
+$ git clone https://github.com/IBM/monitor-wml-model-with-ai-openscale
+$ cd monitor-wml-model-with-ai-openscale
 ```
 
 ### 2. Create a Compose for PostgreSQL DB
