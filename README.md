@@ -42,7 +42,7 @@ When the reader has completed this Code Pattern, they will understand how to:
 ### 1. Clone the repository
 
 ```
-$ git clone https://github.com/IBM/AIOpenScale-data-mart
+$ git clone https://github.com/IBM/monitor-WML-model-with-AI-OpenScale
 $ cd AIOpenScale-data-mart
 ```
 
