@@ -1,6 +1,6 @@
 > **DISCLAIMER**: This notebook is used for demonstrative and illustrative purposes only and does not constitute an offering that has gone through regulatory review. It is not intended to serve as a medical application. There is no representation as to the accuracy of the output of this application and it is presented without warranty.
 
-# AIOpenScale Data Mart
+# Monitor WML Model With AI OpenScale
 
 In this Code Pattern, we will continue from [Prediction Using Watson Machine Learning](https://github.com/IBM/prediction-using-watson-machine-learning) using the model for best drug treatment that was created and deployed. We will create a data mart for Watson Machine Learning deployments and include steps for performance, bias and quality monitor configurations.
 
