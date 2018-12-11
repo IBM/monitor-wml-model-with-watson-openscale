@@ -15,7 +15,7 @@ Create a data mart for Watson Machine Learning deployments and include steps to 
 
 ### Github repo
 
-* https://github.com/IBM/AIOpenScale-data-mart
+* https://github.com/IBM/monitor-wml-model-with-ai-openscale
 
 ### Other URLs
 
