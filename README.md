@@ -41,7 +41,7 @@ When the reader has completed this Code Pattern, they will understand how to:
 
 ### 1. Clone the repository
 
-```
+```bash
 $ git clone https://github.com/IBM/monitor-wml-model-with-ai-openscale
 $ cd monitor-wml-model-with-ai-openscale
 ```
@@ -78,14 +78,16 @@ $ cd monitor-wml-model-with-ai-openscale
 * Follow the instructions for `ACTION: Get data_mart_id (GUID) and apikey` using the [IBM Cloud CLI](https://console.bluemix.net/docs/cli/index.html#overview)
 
 Get an IAM apikey:
-```
-$ibmcloud login --sso
-$ibmcloud iam api-key-create 'my_key'
+
+```bash
+$ ibmcloud login --sso
+$ ibmcloud iam api-key-create 'my_key'
 ```
 
 Get data_mart_id (this is AI OpenScale instance GUID):
-```
-$ibmcloud resource service-instance <AIOpenScale_instance_name>
+
+```bash
+$ ibmcloud resource service-instance <AIOpenScale_instance_name>
 ```
 
 * Enter the `data_mart_id` and `apikey` in the next cell for the `aios_credentials`.
