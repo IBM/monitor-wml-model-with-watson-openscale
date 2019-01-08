@@ -42,8 +42,8 @@ When the reader has completed this Code Pattern, they will understand how to:
 ### 1. Clone the repository
 
 ```bash
-$ git clone https://github.com/IBM/monitor-wml-model-with-ai-openscale
-$ cd monitor-wml-model-with-ai-openscale
+git clone https://github.com/IBM/monitor-wml-model-with-ai-openscale
+cd monitor-wml-model-with-ai-openscale
 ```
 
 ### 2. Create a Compose for PostgreSQL DB
@@ -80,14 +80,14 @@ $ cd monitor-wml-model-with-ai-openscale
 Get an IAM apikey:
 
 ```bash
-$ ibmcloud login --sso
-$ ibmcloud iam api-key-create 'my_key'
+ibmcloud login --sso
+ibmcloud iam api-key-create 'my_key'
 ```
 
 Get data_mart_id (this is AI OpenScale instance GUID):
 
 ```bash
-$ ibmcloud resource service-instance <AIOpenScale_instance_name>
+ibmcloud resource service-instance <AIOpenScale_instance_name>
 ```
 
 * Enter the `data_mart_id` and `apikey` in the next cell for the `aios_credentials`.
