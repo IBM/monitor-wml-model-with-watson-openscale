@@ -26,8 +26,8 @@ When the reader has completed this Code Pattern, they will understand how to:
 
 ## Prerequisites
 
-* An [IBM Cloud Account](https://console.bluemix.net).
-* [IBM Cloud CLI](https://console.bluemix.net/docs/cli/index.html#overview)
+* An [IBM Cloud Account](https://cloud.ibm.com).
+* [IBM Cloud CLI](https://cloud.ibm.com/docs/cli/index.html#overview)
 * An account on [IBM Watson Studio](https://dataplatform.cloud.ibm.com/).
 * Work through the notebook for [Prediction Using Watson Machine Learning](https://github.com/IBM/watson-machine-learning-model-deploy)
 
@@ -50,7 +50,7 @@ cd monitor-wml-model-with-ai-openscale
 
 > Note: Services created must be in the same region, and space, as your Watson Studio service.
 
-* Using the [IBM Cloud Dashboard](https://console.bluemix.net/catalog) catalog, search for PostgreSQL and choose the `Compose for Postgres` service:
+* Using the [IBM Cloud Dashboard](https://cloud.ibm.com/catalog) catalog, search for PostgreSQL and choose the `Compose for Postgres` service:
 
 ![](doc/source/images/ChooseComposePostgres.png)
 
@@ -59,8 +59,8 @@ cd monitor-wml-model-with-ai-openscale
 
 ### 3. Create an AI OpenScale service
 
-* Using the [IBM Cloud Dashboard]() create an [AI OpenScale](https://console.bluemix.net/catalog/services/ai-openscale) service.
-* You will get the AI OpenScale instance GUID when you run the notebook using the [IBM Cloud CLI](https://console.bluemix.net/catalog/services/ai-openscale)
+* Using the [IBM Cloud Dashboard]() create an [AI OpenScale](https://cloud.ibm.com/catalog/services/ai-openscale) service.
+* You will get the AI OpenScale instance GUID when you run the notebook using the [IBM Cloud CLI](https://cloud.ibm.com/catalog/services/ai-openscale)
 
 ### 4. Create a notebook in IBM Watson Studio
 
@@ -75,7 +75,7 @@ cd monitor-wml-model-with-ai-openscale
 
 ### 5. Run the notebook in IBM Watson Studio
 
-* Follow the instructions for `ACTION: Get data_mart_id (GUID) and apikey` using the [IBM Cloud CLI](https://console.bluemix.net/docs/cli/index.html#overview)
+* Follow the instructions for `ACTION: Get data_mart_id (GUID) and apikey` using the [IBM Cloud CLI](https://cloud.ibm.com/docs/cli/index.html#overview)
 
 Get an IAM apikey:
 
@@ -91,7 +91,7 @@ ibmcloud resource service-instance <AIOpenScale_instance_name>
 ```
 
 * Enter the `data_mart_id` and `apikey` in the next cell for the `aios_credentials`.
-* In the cell after `ACTION: Add your Watson Machine Learning credentials here`, add the [Watson Machine Learning](https://console.bluemix.net/catalog/services/machine-learning) credentials for the service that you created for [Prediction Using Watson Machine Learning](https://github.com/IBM/watson-machine-learning-model-deploy).
+* In the cell after `ACTION: Add your Watson Machine Learning credentials here`, add the [Watson Machine Learning](https://cloud.ibm.com/catalog/services/machine-learning) credentials for the service that you created for [Prediction Using Watson Machine Learning](https://github.com/IBM/watson-machine-learning-model-deploy).
 * In the cell after `ACTION: Add your PostgreSQL credentials here` enter the value for the key `uri`.
 > NOTE: This is the key `uri` and is NOT `uri_cli_1`, `uri_cli`, or `uri_direct_1`.
 * Move your cursor to each code cell and run the code in it. Read the comments for each cell to understand what the code is doing. **Important** when the code in a cell is still running, the label to the left changes to **In [\*]**:.
