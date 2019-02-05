@@ -1,13 +1,13 @@
 > **DISCLAIMER**: This notebook is used for demonstrative and illustrative purposes only and does not constitute an offering that has gone through regulatory review. It is not intended to serve as a medical application. There is no representation as to the accuracy of the output of this application and it is presented without warranty.
 
-# Monitor WML Model With AI OpenScale
+# Monitor WML Model With Watson OpenScale
 
 In this Code Pattern, we will continue from [Prediction Using Watson Machine Learning](https://github.com/IBM/watson-machine-learning-model-deploy) using the model for best drug treatment that was created and deployed. We will create a data mart for Watson Machine Learning deployments and include steps for performance, bias and quality monitor configurations.
 
 When the reader has completed this Code Pattern, they will understand how to:
 
-* Setup AI OpenScale Data Mart
-* Bind Watson Machine Learning to the AIOS Data Mart
+* Setup Watson OpenScale Data Mart
+* Bind Watson Machine Learning to the Watson OpenScale Data Mart
 * Add subscriptions to the Data Mart
 * Enable payload logging and performance monitor for both subscribed assets
 * Enable Quality (Accuracy) monitor for best heart drug asset
@@ -20,9 +20,9 @@ When the reader has completed this Code Pattern, they will understand how to:
 ## Flow
 
 1. The developer creates a Jupyter Notebook on Watson Studio, using the existing project from [Prediction Using Watson Machine Learning](https://github.com/IBM/watson-machine-learning-model-deploy).
-2. The Jupyter Notebook is connected to a PostgreSQL database, which is used to store AI OpenScale data.
+2. The Jupyter Notebook is connected to a PostgreSQL database, which is used to store Watson OpenScale data.
 3. The notebook is connected to Watson Machine Learning, where the existing ML model for Heart Medicine Predictor is used.
-4. AI Open Scale is used by the notebook to log payload and monitor performance, quality, and fairness.
+4. Watson Open Scale is used by the notebook to log payload and monitor performance, quality, and fairness.
 
 ## Prerequisites
 
@@ -35,15 +35,15 @@ When the reader has completed this Code Pattern, they will understand how to:
 
 1. [Clone the repository](#1-clone-the-repository)
 1. [Create a Compose for PostgreSQL DB](#2-create-a-compose-for-postgresql-db)
-1. [Create an AI OpenScale service](#3-create-an-ai-openscale-service)
+1. [Create a Watson OpenScale service](#3-create-a-watson-openscale-service)
 1. [Create a notebook in IBM Watson Studio](#4-create-a-notebook-in-ibm-watson-studio)
 1. [Run the notebook in IBM Watson Studio](#5-run-the-notebook-in-ibm-watson-studio)
 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/IBM/monitor-wml-model-with-ai-openscale
-cd monitor-wml-model-with-ai-openscale
+git clone https://github.com/IBM/monitor-wml-model-with-watson-openscale
+cd monitor-wml-model-with-watson-openscale
 ```
 
 ### 2. Create a Compose for PostgreSQL DB
@@ -57,10 +57,10 @@ cd monitor-wml-model-with-ai-openscale
 * Wait a couple of minutes for the database to be provisioned.
 * Click on the `Service Credentials` tab on the left and then click `New credential +` to create the service credentials. Copy them or leave the tab open to use later in the notebook.
 
-### 3. Create an AI OpenScale service
+### 3. Create a Watson OpenScale service
 
-* Using the [IBM Cloud Dashboard]() create an [AI OpenScale](https://cloud.ibm.com/catalog/services/ai-openscale) service.
-* You will get the AI OpenScale instance GUID when you run the notebook using the [IBM Cloud CLI](https://cloud.ibm.com/catalog/services/ai-openscale)
+* Using the [IBM Cloud Dashboard]() create a [Watson OpenScale](https://cloud.ibm.com/catalog/services/ai-openscale) service.
+* You will get the Watson OpenScale instance GUID when you run the notebook using the [IBM Cloud CLI](https://cloud.ibm.com/catalog/services/ai-openscale)
 
 ### 4. Create a notebook in IBM Watson Studio
 
@@ -69,7 +69,7 @@ cd monitor-wml-model-with-ai-openscale
 * Select the `From URL` tab.
 * Enter a name for the notebook.
 * Optionally, enter a description for the notebook.
-* Under `Notebook URL` provide the following url: https://raw.githubusercontent.com/IBM/AIOpenScale-data-mart/master/notebooks/DataMart.ipynb
+* Under `Notebook URL` provide the following url: https://raw.githubusercontent.com/IBM/WatsonOpenScale-data-mart/master/notebooks/DataMart.ipynb
 * Select the `Default Python 3.5` runtime, either `Free` or `XS`.
 * Click the `Create` button.
 
@@ -84,13 +84,13 @@ ibmcloud login --sso
 ibmcloud iam api-key-create 'my_key'
 ```
 
-Get data_mart_id (this is AI OpenScale instance GUID):
+Get data_mart_id (this is Watson OpenScale instance GUID):
 
 ```bash
-ibmcloud resource service-instance <AIOpenScale_instance_name>
+ibmcloud resource service-instance <Watson_OpenScale_instance_name>
 ```
 
-* Enter the `data_mart_id` and `apikey` in the next cell for the `aios_credentials`.
+* Enter the `data_mart_id` and `apikey` in the next cell for the `watson_os_credentials`.
 * In the cell after `ACTION: Add your Watson Machine Learning credentials here`, add the [Watson Machine Learning](https://cloud.ibm.com/catalog/services/machine-learning) credentials for the service that you created for [Prediction Using Watson Machine Learning](https://github.com/IBM/watson-machine-learning-model-deploy).
 * In the cell after `ACTION: Add your PostgreSQL credentials here` enter the value for the key `uri`.
 > NOTE: This is the key `uri` and is NOT `uri_cli_1`, `uri_cli`, or `uri_direct_1`.
