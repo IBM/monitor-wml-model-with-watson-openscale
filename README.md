@@ -22,7 +22,7 @@ When the reader has completed this Code Pattern, they will understand how to:
 1. The developer creates a Jupyter Notebook on Watson Studio, using the existing project from [Prediction Using Watson Machine Learning](https://github.com/IBM/watson-machine-learning-model-deploy).
 2. The Jupyter Notebook is connected to a PostgreSQL database, which is used to store Watson OpenScale data.
 3. The notebook is connected to Watson Machine Learning, where the existing ML model for Heart Medicine Predictor is used.
-4. Watson Open Scale is used by the notebook to log payload and monitor performance, quality, and fairness.
+4. Watson OpenScale is used by the notebook to log payload and monitor performance, quality, and fairness.
 
 ## Prerequisites
 
