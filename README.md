@@ -15,7 +15,7 @@ When the reader has completed this Code Pattern, they will understand how to:
 * Score the best-heart drug model using the Watson Machine Learning
 * Use Data Mart to access tables data via subscription
 
-![](doc/source/images/architecture.png)
+![architecture](doc/source/images/architecture.png)
 
 ## Flow
 
@@ -26,7 +26,7 @@ When the reader has completed this Code Pattern, they will understand how to:
 
 # Watch the Video
 
-[![](https://i.ytimg.com/vi/ux2cv5HkaSw/0.jpg)](https://youtu.be/ux2cv5HkaSw)
+[![video](https://i.ytimg.com/vi/ux2cv5HkaSw/0.jpg)](https://youtu.be/ux2cv5HkaSw)
 
 ## Prerequisites
 
@@ -56,7 +56,7 @@ cd monitor-wml-model-with-watson-openscale
 
 * Using the [IBM Cloud Dashboard](https://cloud.ibm.com/catalog) catalog, search for PostgreSQL and choose the `Compose for Postgres` service:
 
-![](doc/source/images/ChooseComposePostgres.png)
+![choose compose PostGREs](doc/source/images/ChooseComposePostgres.png)
 
 * Wait a couple of minutes for the database to be provisioned.
 * Click on the `Service Credentials` tab on the left and then click `New credential +` to create the service credentials. Copy them or leave the tab open to use later in the notebook.
@@ -103,9 +103,9 @@ ibmcloud resource service-instance <Watson_OpenScale_instance_name>
 
 # Sample Output
 
-![](doc/source/images/dataMartOutput1.png)
+![sample output](doc/source/images/dataMartOutput1.png)
 
-![](doc/source/images/dataMartOutput2.png)
+![sample output](doc/source/images/dataMartOutput2.png)
 
 # License
 [Apache 2.0](LICENSE)
