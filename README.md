@@ -24,6 +24,10 @@ When the reader has completed this Code Pattern, they will understand how to:
 3. The notebook is connected to Watson Machine Learning, where the existing ML model for Heart Medicine Predictor is used.
 4. Watson OpenScale is used by the notebook to log payload and monitor performance, quality, and fairness.
 
+# Watch the Video
+
+[![](https://i.ytimg.com/vi/ux2cv5HkaSw/0.jpg)](https://youtu.be/ux2cv5HkaSw)
+
 ## Prerequisites
 
 * An [IBM Cloud Account](https://cloud.ibm.com).
