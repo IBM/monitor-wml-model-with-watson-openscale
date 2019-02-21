@@ -38,7 +38,7 @@ When the reader has completed this Code Pattern, they will understand how to:
 # Steps
 
 1. [Clone the repository](#1-clone-the-repository)
-1. [Create a Compose for PostgreSQL DB](#2-create-a-compose-for-postgresql-db)
+1. [Create a Databases for PostgreSQL DB](#2-create-a-databases-for-postgresql-db)
 1. [Create a Watson OpenScale service](#3-create-a-watson-openscale-service)
 1. [Create a notebook in IBM Watson Studio](#4-create-a-notebook-in-ibm-watson-studio)
 1. [Run the notebook in IBM Watson Studio](#5-run-the-notebook-in-ibm-watson-studio)
@@ -50,13 +50,11 @@ git clone https://github.com/IBM/monitor-wml-model-with-watson-openscale
 cd monitor-wml-model-with-watson-openscale
 ```
 
-### 2. Create a Compose for PostgreSQL DB
+### 2. Create a Databases for PostgreSQL DB
 
 > Note: Services created must be in the same region, and space, as your Watson Studio service.
 
-* Using the [IBM Cloud Dashboard](https://cloud.ibm.com/catalog) catalog, search for PostgreSQL and choose the `Compose for Postgres` service:
-
-![choose compose PostGREs](doc/source/images/ChooseComposePostgres.png)
+* Using the [IBM Cloud Dashboard](https://cloud.ibm.com/catalog) catalog, search for PostgreSQL and choose the `Databases for Postgres` [service](https://console.bluemix.net/catalog/services/databases-for-postgresql).
 
 * Wait a couple of minutes for the database to be provisioned.
 * Click on the `Service Credentials` tab on the left and then click `New credential +` to create the service credentials. Copy them or leave the tab open to use later in the notebook.
