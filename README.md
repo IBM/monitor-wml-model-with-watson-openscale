@@ -1,27 +1,27 @@
-> **DISCLAIMER**: This notebook is used for demonstrative and illustrative purposes only and does not constitute an offering that has gone through regulatory review. It is not intended to serve as a medical application. There is no representation as to the accuracy of the output of this application and it is presented without warranty.
-
 # Monitor WML Model With Watson OpenScale
 
-In this Code Pattern, we will continue from [Prediction Using Watson Machine Learning](https://github.com/IBM/watson-machine-learning-model-deploy) using the model for best drug treatment that was created and deployed. We will create a data mart for Watson Machine Learning deployments and include steps for performance, bias and quality monitor configurations.
+In this Code Pattern, we will use a German Credit data to train, create, and deploy a machine learning model using [Watson Machine Learing](https://console.bluemix.net/catalog/services/machine-learning). We will create a data mart for this model with [Watson OpenScale] and configure OpenScale to monitor that deployment, and inject seven days' worth of historical records and measurements for viewing in the OpenScale Insights dashboard.
 
 When the reader has completed this Code Pattern, they will understand how to:
 
+* Create and deploy a machine learning model using the Watson Machine Learning service
 * Setup Watson OpenScale Data Mart
 * Bind Watson Machine Learning to the Watson OpenScale Data Mart
 * Add subscriptions to the Data Mart
-* Enable payload logging and performance monitor for both subscribed assets
-* Enable Quality (Accuracy) monitor for best heart drug asset
-* Enable Fairness monitor for best hurt drug asset
-* Score the best-heart drug model using the Watson Machine Learning
+* Enable payload logging and performance monitor for subscribed assets
+* Enable Quality (Accuracy) monitor
+* Enable Fairness monitor
+* Score the German credit model using the Watson Machine Learning
+* Insert historic payloads, fairness metrics, and quality metrics into the Data Mart
 * Use Data Mart to access tables data via subscription
 
 ![architecture](doc/source/images/architecture.png)
 
 ## Flow
 
-1. The developer creates a Jupyter Notebook on Watson Studio, using the existing project from [Prediction Using Watson Machine Learning](https://github.com/IBM/watson-machine-learning-model-deploy).
+1. The developer creates a Jupyter Notebook on Watson Studio.
 2. The Jupyter Notebook is connected to a PostgreSQL database, which is used to store Watson OpenScale data.
-3. The notebook is connected to Watson Machine Learning, where the existing ML model for Heart Medicine Predictor is used.
+3. The notebook is connected to Watson Machine Learning and a model is trained and deployed.
 4. Watson OpenScale is used by the notebook to log payload and monitor performance, quality, and fairness.
 
 # Watch the Video
@@ -33,7 +33,6 @@ When the reader has completed this Code Pattern, they will understand how to:
 * An [IBM Cloud Account](https://cloud.ibm.com).
 * [IBM Cloud CLI](https://cloud.ibm.com/docs/cli/index.html#overview)
 * An account on [IBM Watson Studio](https://dataplatform.cloud.ibm.com/).
-* Work through the notebook for [Prediction Using Watson Machine Learning](https://github.com/IBM/watson-machine-learning-model-deploy)
 
 # Steps
 
@@ -55,7 +54,6 @@ cd monitor-wml-model-with-watson-openscale
 > Note: Services created must be in the same region, and space, as your Watson Studio service.
 
 * Using the [IBM Cloud Dashboard](https://cloud.ibm.com/catalog) catalog, search for PostgreSQL and choose the `Databases for Postgres` [service](https://console.bluemix.net/catalog/services/databases-for-postgresql).
-
 * Wait a couple of minutes for the database to be provisioned.
 * Click on the `Service Credentials` tab on the left and then click `New credential +` to create the service credentials. Copy them or leave the tab open to use later in the notebook.
 
@@ -66,36 +64,41 @@ cd monitor-wml-model-with-watson-openscale
 
 ### 4. Create a notebook in IBM Watson Studio
 
-* In [Watson Studio](https://dataplatform.cloud.ibm.com/), open the project you created for [Prediction Using Watson Machine Learning](https://github.com/IBM/watson-machine-learning-model-deploy)
+* In [Watson Studio](https://dataplatform.cloud.ibm.com/), click `New Project +` under Projects or, at the top of the page click `+ New` and choose the tile for `Data Science` and then `Create Project`.
+* In your project go to the `Settings` tab, scroll down to `Associated Services` and choose `+ Add service` -> `Spark`. Either choose and `Existing` Spark service, or create a `New` one.
 * In [Watson Studio](https://dataplatform.cloud.ibm.com/) using the project you've created, click on `+ Add to project` and then choose the  `Notebook` tile, OR in the `Assets` tab under `Notebooks` choose `+ New notebook` to create a notebook.
 * Select the `From URL` tab.
 * Enter a name for the notebook.
 * Optionally, enter a description for the notebook.
-* Under `Notebook URL` provide the following url: https://raw.githubusercontent.com/IBM/WatsonOpenScale-data-mart/master/notebooks/DataMart.ipynb
-* Select the `Default Python 3.5` runtime, either `Free` or `XS`.
+* Under `Notebook URL` provide the following url: https://raw.githubusercontent.com/IBM/WatsonOpenScale-data-mart/master/notebooks/OpenScale.ipynb
+* Select the Spark runtime you've associated with this project:
 * Click the `Create` button.
 
 ### 5. Run the notebook in IBM Watson Studio
 
-* Follow the instructions for `ACTION: Get data_mart_id (GUID) and apikey` using the [IBM Cloud CLI](https://cloud.ibm.com/docs/cli/index.html#overview)
+Follow the instructions for `Provision services and configure credentials`:
 
-Get an IAM apikey:
+Your Cloud API key can be generated by going to the [**Users** section of the Cloud console](https://cloud.ibm.com/iam#/users).
+* From that page, click your name, scroll down to the **API Keys** section, and click **Create an IBM Cloud API key**.
+* Give your key a name and click **Create**, then copy the created key and paste it below.
 
-```bash
-ibmcloud login --sso
-ibmcloud iam api-key-create 'my_key'
-```
-
-Get data_mart_id (this is Watson OpenScale instance GUID):
+Alternately, from the [IBM Cloud CLI](https://console.bluemix.net/docs/cli/reference/ibmcloud/download_cli.html#install_use) :
 
 ```bash
-ibmcloud resource service-instance <Watson_OpenScale_instance_name>
+bx login --sso
+bx iam api-key-create 'my_key'
 ```
 
-* Enter the `data_mart_id` and `apikey` in the next cell for the `watson_os_credentials`.
-* In the cell after `ACTION: Add your Watson Machine Learning credentials here`, add the [Watson Machine Learning](https://cloud.ibm.com/catalog/services/machine-learning) credentials for the service that you created for [Prediction Using Watson Machine Learning](https://github.com/IBM/watson-machine-learning-model-deploy).
-* In the cell after `ACTION: Add your PostgreSQL credentials here` enter the value for the key `uri`.
-> NOTE: This is the key `uri` and is NOT `uri_cli_1`, `uri_cli`, or `uri_direct_1`.
+* Get the Watson OpenScale GUID using the [IBM Cloud CLI](https://console.bluemix.net/docs/cli/reference/ibmcloud/download_cli.html#install_use) :
+
+```bash
+bx resource service-instance <Watson_OpenScale_instance_name>
+```
+
+* Enter the `AIOS_GUID` and `CLOUD_API_KEY` in the next cell for the `AIOS_CREDENTIALS`.
+* Add the [Watson Machine Learning](https://cloud.ibm.com/catalog/services/machine-learning) credentials for the service that you created in the next cell as `WML_CREDENTIALS`.
+* Add your `DB_CREDENTIALS` after reading the instructions preceeding that cell.
+
 * Move your cursor to each code cell and run the code in it. Read the comments for each cell to understand what the code is doing. **Important** when the code in a cell is still running, the label to the left changes to **In [\*]**:.
   Do **not** continue to the next cell until the code is finished running.
 
@@ -104,6 +107,8 @@ ibmcloud resource service-instance <Watson_OpenScale_instance_name>
 ![sample output](doc/source/images/dataMartOutput1.png)
 
 ![sample output](doc/source/images/dataMartOutput2.png)
+
+![sample output](doc/source/images/dataMartOutput3.png)
 
 # License
 [Apache 2.0](LICENSE)
