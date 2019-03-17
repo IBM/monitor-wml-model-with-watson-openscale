@@ -70,7 +70,7 @@ cd monitor-wml-model-with-watson-openscale
 * Select the `From URL` tab.
 * Enter a name for the notebook.
 * Optionally, enter a description for the notebook.
-* Under `Notebook URL` provide the following url: https://raw.githubusercontent.com/IBM/WatsonOpenScale-data-mart/master/notebooks/OpenScale.ipynb
+* Under `Notebook URL` provide the following url: https://raw.githubusercontent.com/IBM/monitor-wml-model-with-watson-openscale/master/notebooks/OpenScale.ipynb
 * Select the Spark runtime you've associated with this project:
 * Click the `Create` button.
 
