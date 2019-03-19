@@ -37,7 +37,7 @@ When the reader has completed this Code Pattern, they will understand how to:
 # Steps
 
 1. [Clone the repository](#1-clone-the-repository)
-1. [Create a Databases for PostgreSQL DB](#2-create-a-databases-for-postgresql-db)
+1. [Use free internal DB or Create a Databases for PostgreSQL DB](#2-use-free-internal-db-or-create-a-databases-for-postgresql-db)
 1. [Create a Watson OpenScale service](#3-create-a-watson-openscale-service)
 1. [Create a notebook in IBM Watson Studio](#4-create-a-notebook-in-ibm-watson-studio)
 1. [Run the notebook in IBM Watson Studio](#5-run-the-notebook-in-ibm-watson-studio)
@@ -49,13 +49,28 @@ git clone https://github.com/IBM/monitor-wml-model-with-watson-openscale
 cd monitor-wml-model-with-watson-openscale
 ```
 
-### 2. Create a Databases for PostgreSQL DB
+### 2. Use free internal DB or Create a Databases for PostgreSQL DB
+
+#### If you wish, you can use the free internal Database with Watson OpenScale. To do this, make sure that the cell for `KEEP_MY_INTERNAL_POSTGRES = True` remains unchanged.
+
+#### If you have or wish to use a paid `Databases for Postgres` instance, follow these instructions:
 
 > Note: Services created must be in the same region, and space, as your Watson Studio service.
 
 * Using the [IBM Cloud Dashboard](https://cloud.ibm.com/catalog) catalog, search for PostgreSQL and choose the `Databases for Postgres` [service](https://console.bluemix.net/catalog/services/databases-for-postgresql).
 * Wait a couple of minutes for the database to be provisioned.
 * Click on the `Service Credentials` tab on the left and then click `New credential +` to create the service credentials. Copy them or leave the tab open to use later in the notebook.
+* Make sure that the cell in the notebook that has:
+
+```python
+KEEP_MY_INTERNAL_POSTGRES = True
+```
+
+is changed to:
+
+```python
+KEEP_MY_INTERNAL_POSTGRES = False
+```
 
 ### 3. Create a Watson OpenScale service
 
@@ -97,7 +112,7 @@ bx resource service-instance <Watson_OpenScale_instance_name>
 
 * Enter the `AIOS_GUID` and `CLOUD_API_KEY` in the next cell for the `AIOS_CREDENTIALS`.
 * Add the [Watson Machine Learning](https://cloud.ibm.com/catalog/services/machine-learning) credentials for the service that you created in the next cell as `WML_CREDENTIALS`.
-* Add your `DB_CREDENTIALS` after reading the instructions preceeding that cell.
+* Either use the internal Database, which requires *No Changes* or Add your `DB_CREDENTIALS` after reading the instructions preceeding that cell and change the cell `KEEP_MY_INTERNAL_POSTGRES = True` to become `KEEP_MY_INTERNAL_POSTGRES = False`.
 
 * Move your cursor to each code cell and run the code in it. Read the comments for each cell to understand what the code is doing. **Important** when the code in a cell is still running, the label to the left changes to **In [\*]**:.
   Do **not** continue to the next cell until the code is finished running.
