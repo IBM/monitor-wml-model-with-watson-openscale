@@ -117,13 +117,31 @@ bx resource service-instance <Watson_OpenScale_instance_name>
 * Move your cursor to each code cell and run the code in it. Read the comments for each cell to understand what the code is doing. **Important** when the code in a cell is still running, the label to the left changes to **In [\*]**:.
   Do **not** continue to the next cell until the code is finished running.
 
-# Sample Output
+### Sample Output
 
-![sample output](doc/source/images/dataMartOutput1.png)
+* Go to the instance of [Watson OpenScale](https://aiopenscale.cloud.ibm.com/aiopenscale/insights) that you created and click `Manage` on the menu and then `Launch Application`. Choose the `Insights` tab to get an overview of your monitored deployments, Accuracy alerts, and Fairness alerts.
 
-![sample output](doc/source/images/dataMartOutput2.png)
+![WOS insights](doc/source/images/WOSinsights.png)
 
-![sample output](doc/source/images/dataMartOutput3.png)
+* Click on the tile for the `Spark German Risk Deployment` and you can see graphs for `Fairness`, `Accuracy`, and `Performance (Avg. Requests/Minute)`. Click on a portion of the graph to bring up a detailed view. We'll describe the data we clicked on, yours will vary.
+
+![WOS detailed graphs](doc/source/images/WOSdetailedGraphs.png)
+
+* You can see from the image above that, at this time, our model is receiving 4.6 requests per minute, with an accuracy of 72%. We have 13% of our credit risk (and 87% of no risk) due the fact that this individual is age 18 to 25, and 28% credit risk (and 72% of no risk) due to the fact that this individual is female. This latter statistic id flagged as `bias`.
+
+* Now click `View details`.
+
+![WOS transaction detail age](doc/source/images/WOStransactionDetailAge.png)
+
+* We can see that, for the `age` category, 87% of 18 to 25 year olds received `No Risk` compared to 82% of 26 to 75 year olds. This is not flagged as biased.
+
+* Now click on the tab marked `age` and change it to `sex`. We can see that only 71% of the females group received the outcome of `No Risk` as compared to 78% of the male group. This is flagged as `BIAS`. Now click on `View Transactions`.
+
+![WOS bias](doc/source/images/WOSbias.png)
+
+* In the `Explain a transaction` window, we can see the details as to which feature contributed specific amounts to the overall assesment of `Risk` vs. `No Risk`, as well as `Minimum changes for another outcome` and `Minimum factors supporting this outcome`.
+
+![WOS explain transaction detail](doc/source/images/WOSexplainTransactionDetail.png)
 
 # License
 [Apache 2.0](LICENSE)
