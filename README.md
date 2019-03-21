@@ -1,6 +1,6 @@
 # Monitor WML Model With Watson OpenScale
 
-In this Code Pattern, we will use German Credit data to train, create, and deploy a machine learning model using [Watson Machine Learing](https://console.bluemix.net/catalog/services/machine-learning). We will create a data mart for this model with [Watson OpenScale] and configure OpenScale to monitor that deployment, and inject seven days' worth of historical records and measurements for viewing in the OpenScale Insights dashboard.
+In this Code Pattern, we will use German Credit data to train, create, and deploy a machine learning model using [Watson Machine Learning](https://console.bluemix.net/catalog/services/machine-learning). We will create a data mart for this model with [Watson OpenScale] and configure OpenScale to monitor that deployment, and inject seven days' worth of historical records and measurements for viewing in the OpenScale Insights dashboard.
 
 When the reader has completed this Code Pattern, they will understand how to:
 
@@ -26,7 +26,7 @@ When the reader has completed this Code Pattern, they will understand how to:
 
 # Watch the Video
 
-[![video](https://i.ytimg.com/vi/ux2cv5HkaSw/0.jpg)](https://youtu.be/ux2cv5HkaSw)
+[![video](https://i.ytimg.com/vi/S6i4p5IB-7c/0.jpg)](https://youtu.be/S6i4p5IB-7c)
 
 ## Prerequisites
 
