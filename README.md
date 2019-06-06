@@ -82,14 +82,15 @@ KEEP_MY_INTERNAL_POSTGRES = False
 ### 4. Create a notebook in IBM Watson Studio
 
 * In [Watson Studio](https://dataplatform.cloud.ibm.com/), click `New Project +` under Projects or, at the top of the page click `+ New` and choose the tile for `Data Science` and then `Create Project`.
-* In your project go to the `Settings` tab, scroll down to `Associated Services` and choose `+ Add service` -> `Spark`. Either choose and `Existing` Spark service, or create a `New` one.
 * In [Watson Studio](https://dataplatform.cloud.ibm.com/) using the project you've created, click on `+ Add to project` and then choose the  `Notebook` tile, OR in the `Assets` tab under `Notebooks` choose `+ New notebook` to create a notebook.
-* Select the `From URL` tab.
-* Enter a name for the notebook.
-* Optionally, enter a description for the notebook.
-* Under `Notebook URL` provide the following url: https://raw.githubusercontent.com/IBM/monitor-wml-model-with-watson-openscale/master/notebooks/OpenScale.ipynb
-* Select the Spark runtime you've associated with this project:
-* Click the `Create` button.
+* Select the `From URL` tab. [1]
+* Enter a name for the notebook. [2]
+* Optionally, enter a description for the notebook. [3]
+* Under `Notebook URL` provide the following url:[https://raw.githubusercontent.com/IBM/monitor-wml-model-with-watson-openscale/master/notebooks/OpenScale.ipynb](https://raw.githubusercontent.com/IBM/monitor-wml-model-with-watson-openscale/master/notebooks/OpenScale.ipynb) [4]
+* For `Runtime` select the `Spark Python 3.5` option. [5]
+* Click the `Create` button. [6]
+
+![OpenScale Notebook Create](doc/source/images/OpenScaleNotebookCreate.png)
 
 ### 5. Run the notebook in IBM Watson Studio
 
