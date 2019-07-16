@@ -87,7 +87,7 @@ KEEP_MY_INTERNAL_POSTGRES = False
 * Enter a name for the notebook. [2]
 * Optionally, enter a description for the notebook. [3]
 * Under `Notebook URL` provide the following url: [https://raw.githubusercontent.com/IBM/monitor-wml-model-with-watson-openscale/master/notebooks/OpenScale.ipynb](https://raw.githubusercontent.com/IBM/monitor-wml-model-with-watson-openscale/master/notebooks/OpenScale.ipynb) [4]
-* For `Runtime` select the `Spark Python 3.5` option. [5]
+* For `Runtime` select the `Spark Python 3.6` option. [5]
 * Click the `Create notebook` button. [6]
 
 ![OpenScale Notebook Create](doc/source/images/OpenScaleNotebookCreate.png)
