@@ -41,6 +41,7 @@ When the reader has completed this Code Pattern, they will understand how to:
 1. [Create a Watson OpenScale service](#3-create-a-watson-openscale-service)
 1. [Create a notebook in IBM Watson Studio](#4-create-a-notebook-in-ibm-watson-studio)
 1. [Run the notebook in IBM Watson Studio](#5-run-the-notebook-in-ibm-watson-studio)
+1. [Setup OpenScale to utilize the dashboard](#6-setup-openscale-to-utilize-the-dashboard)
 
 ### 1. Clone the repository
 
@@ -119,6 +120,11 @@ ibmcloud resource service-instance <Watson_OpenScale_instance_name>
 
 * Move your cursor to each code cell and run the code in it. Read the comments for each cell to understand what the code is doing. **Important** when the code in a cell is still running, the label to the left changes to **In [\*]**:.
   Do **not** continue to the next cell until the code is finished running.
+
+## 6. Setup OpenScale to utilize the dashboard
+
+Now that you have created a machine learning model, you can utilize the OpenScale dashboard to gather insights.
+[Follow the steps to configure the OpenScale dashboard](https://cloud.ibm.com/docs/services/ai-openscale?topic=ai-openscale-gs-obj#gs-confaios)
 
 ### Sample Output
 
