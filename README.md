@@ -85,7 +85,7 @@ KEEP_MY_INTERNAL_POSTGRES = False
 
 * Under the `Settings` tab, scroll down to `Associated services`, click `+ Add service` and choose `Watson`:
 
-![](https://github.com/IBM/pattern-images/blob/master/watson-studio/add_service.png)
+  ![](https://github.com/IBM/pattern-images/blob/master/watson-studio/add_service.png)
 
 * Search for `Machine Learning`, Verify this service is being created in the same space as the app in Step 1, and click `Create`.
 
