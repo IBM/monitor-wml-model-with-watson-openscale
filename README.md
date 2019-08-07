@@ -39,9 +39,10 @@ When the reader has completed this Code Pattern, they will understand how to:
 1. [Clone the repository](#1-clone-the-repository)
 1. [Use free internal DB or Create a Databases for PostgreSQL DB](#2-use-free-internal-db-or-create-a-databases-for-postgresql-db)
 1. [Create a Watson OpenScale service](#3-create-a-watson-openscale-service)
-1. [Create a notebook in IBM Watson Studio](#4-create-a-notebook-in-ibm-watson-studio)
-1. [Run the notebook in IBM Watson Studio](#5-run-the-notebook-in-ibm-watson-studio)
-1. [Setup OpenScale to utilize the dashboard](#6-setup-openscale-to-utilize-the-dashboard)
+1. [Create a Watson Machine Learning instance](#4-create-a-watson-machine-learning-instance)
+1. [Create a notebook in IBM Watson Studio](#5-create-a-notebook-in-ibm-watson-studio)
+1. [Run the notebook in IBM Watson Studio](#6-run-the-notebook-in-ibm-watson-studio)
+1. [Setup OpenScale to utilize the dashboard](#7-setup-openscale-to-utilize-the-dashboard)
 
 ### 1. Clone the repository
 
@@ -80,7 +81,31 @@ KEEP_MY_INTERNAL_POSTGRES = False
 * Using the [IBM Cloud Dashboard]() create a [Watson OpenScale](https://cloud.ibm.com/catalog/services/ai-openscale) service.
 * You will get the Watson OpenScale instance GUID when you run the notebook using the [IBM Cloud CLI](https://cloud.ibm.com/catalog/services/ai-openscale)
 
-### 4. Create a notebook in IBM Watson Studio
+### 4. Create a Watson Machine Learning instance
+
+* Under the `Settings` tab, scroll down to `Associated services`, click `+ Add service` and choose `Watson`:
+
+  ![](https://github.com/IBM/pattern-images/blob/master/watson-studio/add_service.png)
+
+* Search for `Machine Learning`, Verify this service is being created in the same space as the app in Step 1, and click `Create`.
+
+  ![](https://raw.githubusercontent.com/IBM/pattern-images/master/machine-learning/create-machine-learning.png)
+
+* Alternately, you can choose an existing Machine Learning instance and click on `Select`.
+
+  ![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/watson-studio-add-existing-ML.png)
+
+* The Watson Machine Learning service is now listed as one of your `Associated Services`.
+
+* In a different browser tab go to [https://cloud.ibm.com/](https://cloud.ibm.com/) and log in to the Dashboard.
+
+* Click on your Watson Machine Learning instance under `Services`, click on `Service credentials` and then on `View credentials` to see the credentials.
+
+  ![](https://raw.githubusercontent.com/IBM/pattern-images/master/machine-learning/ML-service-credentials.png)
+
+* Save the credentials in a file. You will use them inside the notebook.
+
+### 5. Create a notebook in IBM Watson Studio
 
 * In [Watson Studio](https://dataplatform.cloud.ibm.com/), click `New Project +` under Projects or, at the top of the page click `+ New` and choose the tile for `Data Science` and then `Create Project`.
 * In [Watson Studio](https://dataplatform.cloud.ibm.com/) using the project you've created, click on `+ Add to project` and then choose the  `Notebook` tile, OR in the `Assets` tab under `Notebooks` choose `+ New notebook` to create a notebook.
@@ -93,7 +118,7 @@ KEEP_MY_INTERNAL_POSTGRES = False
 
 ![OpenScale Notebook Create](doc/source/images/OpenScaleNotebookCreate.png)
 
-### 5. Run the notebook in IBM Watson Studio
+### 6. Run the notebook in IBM Watson Studio
 
 Follow the instructions for `Provision services and configure credentials`:
 
@@ -121,7 +146,7 @@ ibmcloud resource service-instance <Watson_OpenScale_instance_name>
 * Move your cursor to each code cell and run the code in it. Read the comments for each cell to understand what the code is doing. **Important** when the code in a cell is still running, the label to the left changes to **In [\*]**:.
   Do **not** continue to the next cell until the code is finished running.
 
-## 6. Setup OpenScale to utilize the dashboard
+## 7. Setup OpenScale to utilize the dashboard
 
 Now that you have created a machine learning model, you can utilize the OpenScale dashboard to gather insights.
 [Follow the steps to configure the OpenScale dashboard](https://cloud.ibm.com/docs/services/ai-openscale?topic=ai-openscale-gs-obj#gs-confaios)
